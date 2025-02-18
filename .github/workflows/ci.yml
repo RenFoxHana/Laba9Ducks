@@ -18,10 +18,10 @@ jobs:
           dotnet-version: '8.0.x
       - name: build code
         run: dotnet build DuckHappiness/DuckHappiness.csproj
-test:
-needs: build
-  runs-on: ubuntu-latest
-  steps:
+  test:
+  needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: checkout code
         uses: actions/checkout@v4
       - name: setup .NET
