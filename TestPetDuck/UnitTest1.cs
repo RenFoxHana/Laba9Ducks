@@ -9,13 +9,13 @@ namespace TestPetDuck
         public ItemManagerTests()
         {
             itemManager = new ItemManager();
-            duck = new Duck("Тестовая Утка");
+            duck = new Duck("РўРµСЃС‚РѕРІР°СЏ РЈС‚РєР°");
         }
 
         [Fact]
         public void UsingHappyItem()
         {
-            var itemName = "Счастливый камень";
+            var itemName = "РЎС‡Р°СЃС‚Р»РёРІС‹Р№ РєР°РјРµРЅСЊ";
             var itemHappinessChange = itemManager.Items.FirstOrDefault(x => x.Name == itemName).HappinessChange;
             var initialHappiness = duck.Happiness;
 
@@ -27,7 +27,7 @@ namespace TestPetDuck
         [Fact]
         public void UsingUnhappyItem()
         {
-            var itemName = "Гравий";
+            var itemName = "Р“СЂР°РІРёР№";
             var itemHappinessChange = itemManager.Items.FirstOrDefault(x => x.Name == itemName).HappinessChange;
             var initialHappiness = duck.Happiness;
 
@@ -40,18 +40,18 @@ namespace TestPetDuck
         public void DuckDiesFromSadness()
         {
             duck.Happiness = 1;
-            var itemName = "Пустая банка";
+            var itemName = "РџСѓСЃС‚Р°СЏ Р±Р°РЅРєР°";
 
             itemManager.UseItem(duck, itemName);
 
-            Assert.Equal("мертва", duck.Status);
+            Assert.Equal("РјРµСЂС‚РІР°", duck.Status);
         }
 
         [Fact]
         public void SatisfactionNotAbove100()
         {
             duck.Satisfaction = 95;
-            var itemName = "Корм для уток";
+            var itemName = "РљРѕСЂРј РґР»СЏ СѓС‚РѕРє";
 
             itemManager.UseItem(duck, itemName);
 
@@ -62,7 +62,7 @@ namespace TestPetDuck
         public void SatisfactionNotBelow0()
         {
             duck.Satisfaction = 5;
-            var itemName = "Пустая банка";
+            var itemName = "РџСѓСЃС‚Р°СЏ Р±Р°РЅРєР°";
 
             itemManager.UseItem(duck, itemName);
 
